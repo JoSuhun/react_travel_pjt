@@ -1,4 +1,3 @@
-// src/components/TourismList.js
 import React, { useState, useEffect } from "react";
 
 const TourList = () => {
@@ -19,10 +18,9 @@ const TourList = () => {
   const getTourData = async (lat, lon) => {
     const response = await fetch(
       // 위치 기반 관광 정보 조회 (한국관광공사_국문 관광정보 서비스_GW)
-      `http://apis.data.go.kr/B551011/KorService/locationBasedList?serviceKey=${API_KEY}&_type=json&MobileOS=WIN&numOfRows=100&MobileApp=test&mapX=${lon}&mapY=${lat}&radius=10000`
+      `http://apis.data.go.kr/B551011/KorService1/locationBasedList1?serviceKey=${API_KEY}&_type=json&MobileOS=WIN&numOfRows=10&MobileApp=test&mapX=${lon}&mapY=${lat}&radius=10000`
     );
     const json = await response.json();
-    console.log(json.response.body.items.item);
     setTourData(json.response.body.items.item);
   };
 
