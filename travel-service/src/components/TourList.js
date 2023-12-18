@@ -32,7 +32,7 @@ const TourList = () => {
 
     return (
     <div>
-        <h1>Tourism List</h1>
+        <h1>Tour List</h1>
         <ul>
         {tourData.map((item) => (
           <li key={item.contentid}>{item.title}</li>
