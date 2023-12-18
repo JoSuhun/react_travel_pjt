@@ -1,11 +1,14 @@
-import './App.css';
-import TourList from './components/TourList';
+import Main from "./routes/Main";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <h3>안녕하세요?</h3>
-      <TourList />
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
