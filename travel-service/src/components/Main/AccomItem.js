@@ -1,5 +1,3 @@
-import './AccomItem.css'
-
 const AccomItem = ({title, addr1, firstimage, areacode}) =>{
     return(
         <div className="AccomItem">

@@ -14,9 +14,6 @@ function Main() {
     <div>
       <h3>안녕하세요?</h3>
 
-      <TourList
-        APIKEY={API_KEY}
-       />
       <SelectLocation
         setArea={setArea}
         setSiGunGu={setSiGunGu}

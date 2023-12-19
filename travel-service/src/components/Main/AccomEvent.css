@@ -1,0 +1,83 @@
+/* AccomList */
+.AccomList .list-section {
+    display: flex;
+    overflow-y: scroll;
+    background-color: #ececec;
+}
+
+/* AccomItem */
+.AccomItem {
+    background-color: #ffffff;
+    margin: 20px 5px;
+    width: 500px;
+    height: 310px;
+    border-radius: 5px;
+}
+.AccomItem img {
+    width: 80vh;
+    height: 200px;
+    object-fit: cover;
+}
+.AccomItem h3 {
+    height: 5vh;
+    font-size: 17px;
+    color: rgb(64, 64, 64);
+    align-items: center;
+    text-align: center;
+}
+.AccomItem .accom-addr {
+    text-align: center;
+    color: #878787;
+}
+
+/* EventList */
+
+.EventList {
+    height: 400px;
+    display: flex;
+    overflow-y: scroll;
+}
+
+/* EventListItem */
+
+.EventListItem {
+    border-radius: 5px;
+    margin: 10px 20px;
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    @media screen and (max-width: 992px) {
+      width: 45%;
+    }
+    @media screen and (max-width: 576) {
+      width: 100%;
+    }
+}
+
+.EventListItem .event_image {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.EventListItem .event_text_box {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    &:hover {
+      opacity: 1;
+    };
+}
+
+.EventListItem .event_text_box p {
+    font-weight: 300;
+    margin: 5px 10px;
+}
