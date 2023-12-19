@@ -15,7 +15,7 @@ function Main() {
     <div>
       <h3>안녕하세요?</h3>
 
-      {/* <TourList /> */}
+      <TourList />
       <SelectLocation
         setArea={setArea}
         setSiGunGu={setSiGunGu}
@@ -24,10 +24,7 @@ function Main() {
         APIKEY={API_KEY}
       />
       <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
-
-      <TourList />
-
-      <AccomList />
+      <AccomList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
 
     </div>
   );
