@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import AccomList from "../components/Main/AccomList";
 import TourList from "../components/Main/TourList";
@@ -15,7 +14,9 @@ function Main() {
     <div>
       <h3>안녕하세요?</h3>
 
-      <TourList />
+      <TourList
+        APIKEY={API_KEY}
+       />
       <SelectLocation
         setArea={setArea}
         setSiGunGu={setSiGunGu}

@@ -14,7 +14,7 @@ function EventList({ area, siGunGu, APIKEY }) {
 
   const updateEvent = async () => {
     const response = await axios.get(
-      `https://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${APIKEY}&numOfRows=100&MobileOS=WIN&MobileApp=test&_type=json&eventStartDate=20170901&${
+      `https://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${APIKEY}&numOfRows=100&MobileOS=WIN&MobileApp=test&_type=json&arrange=R&eventStartDate=20170901&${
         area ? `areaCode=${area}` : ""
       }${siGunGu ? `&sigunguCode=${siGunGu}` : ""}`
     );
