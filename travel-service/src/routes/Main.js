@@ -1,4 +1,6 @@
+
 import React, { useState } from "react";
+import AccomList from "../components/Main/AccomList";
 import TourList from "../components/Main/TourList";
 import SelectLocation from "../components/Main/SelectLocation";
 import EventList from "../components/Main/EventList";
@@ -12,6 +14,7 @@ function Main() {
   return (
     <div>
       <h3>안녕하세요?</h3>
+
       {/* <TourList /> */}
       <SelectLocation
         setArea={setArea}
@@ -21,6 +24,11 @@ function Main() {
         APIKEY={API_KEY}
       />
       <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
+
+      <TourList />
+
+      <AccomList />
+
     </div>
   );
 }
