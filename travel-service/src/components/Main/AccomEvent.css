@@ -45,45 +45,106 @@
 
 /* EventList */
 .EventList {
+    display: flex;
     background-color: #ececec;
+    width: 100%;
+}
+.EventList .list_head {
+    width: 200px;
+    height: 370px;
+
+    border-right: 1px solid rgb(160, 160, 160);
 }
 .EventList h1 {
     padding-top: 10px;
-    margin: 0 15px;
-    border-top: 1px solid rgb(160, 160, 160);
+    padding-right: 20px;
+    margin: 0 30px;
+
 }
 
-/* .EventList .event_list_section {
-    height: 400px;
+/* carousel */
+
+.carousel-container {
+    position: relative;
+    width: 73%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+  
+.carousel-slides {
     display: flex;
-    overflow-y: scroll;
-    padding-bottom: 20px;
-} */
+    height: 90%;
+    transition: transform 0.5s ease-in-out;
+}
+  
+.carousel-slide {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
 
-/* EventListItem */
+  
+.carousel-slide.active {
+    position: absolute;
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 1;
+}
 
-/* .EventListItem {
+.carousel-slide.next {
+    position: absolute;
+    transform: translateX(200%);
+    opacity: 0.5;
+    z-index: 2;
+}
+.carousel-slide.prev {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; 
+}
+
+.btn_container {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-button {
+    justify-content: center;
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.carousel-button:focus {
+    outline: none;
+}
+
+
+.EventListItem {
     border-radius: 5px;
     margin: 10px 20px;
-    width: 20%;
+    height: 300px;
     aspect-ratio: 1 / 1;
     position: relative;
-    @media screen and (max-width: 992px) {
-      width: 45%;
-    }
-    @media screen and (max-width: 576) {
-      width: 100%;
-    }
-}
-
-.EventListItem .event_image {
+  }
+  
+  .EventListItem .event_image {
     border-radius: 5px;
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.EventListItem .event_text_box {
+  }
+  
+  .EventListItem .event_text_box {
     border-radius: 5px;
     position: absolute;
     display: flex;
@@ -94,24 +155,24 @@
     bottom: 0;
     right: 0;
     opacity: 0;
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 10px 10px;
-    &:hover {
-      opacity: 1;
-    };
-}
+    padding: 10px;
+  }
 
-.EventListItem .event_text_box .event_title {
+  .EventListItem .event_text_box:hover {
+    opacity: 1;
+  }
+  
+  .EventListItem .event_text_box .event_title {
     font-size: 22px;
     font-weight: 700;
-    padding-top: 5vh;
-}
-
-.EventListItem .event_text_box p {
+  }
+  
+  .EventListItem .event_text_box p {
     font-weight: 300;
-    margin: 5px 10px;
-} */
+    margin: 5px 0;
+  }
 
 /* select */
 
@@ -149,107 +210,3 @@
 }
 
 
-
-.carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    padding-bottom: 20px;
-    margin: auto;
-    overflow: hidden;
-}
-
-.carousel-slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide {
-    flex: 0 0 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.carousel-slide.active {
-    position: absolute;
-    opacity: 1;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: auto;
-}
-
-.carousel-button {
-    position: absolute;
-    /* top: 50%; */
-    font-size: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-.carousel-button.prev {
-    left: 0;
-}
-
-.carousel-button.next {
-    right: 0;
-}
-
-.carousel-button:focus {
-    outline: none;
-}
-
-
-.EventListItem {
-    border-radius: 5px;
-    margin: 10px 20px;
-    height: 300px;
-    aspect-ratio: 1 / 1;
-    position: relative;
-    @media screen and (max-width: 992px) {
-      width: 45%;
-    }
-    @media screen and (max-width: 576px) {
-      width: 100%;
-    }
-  }
-  
-  .EventListItem .event_image {
-    border-radius: 5px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .EventListItem .event_text_box {
-    border-radius: 5px;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px;
-    &:hover {
-      opacity: 1;
-    }
-  }
-  
-  .EventListItem .event_text_box .event_title {
-    font-size: 22px;
-    font-weight: 700;
-  }
-  
-  .EventListItem .event_text_box p {
-    font-weight: 300;
-    margin: 5px 0;
-  }
