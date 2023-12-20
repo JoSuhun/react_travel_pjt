@@ -6,11 +6,20 @@ import EventListItem from "./EventListItem";
 // import styled from "styled-components";
 
 function EventList({ area, siGunGu, APIKEY }) {
-  const [events, setEvents] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [events, setEvents] = useState([])
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? events.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === events.length - 1 ? 0 : prev + 1));
+  };
 
   const updateEvent = async () => {
     const response = await axios.get(
-      `https://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${APIKEY}&numOfRows=100&MobileOS=WIN&MobileApp=test&_type=json&arrange=R&eventStartDate=20170901&${
+      `https://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${APIKEY}&numOfRows=10&MobileOS=WIN&MobileApp=test&_type=json&arrange=R&eventStartDate=20170901&${
         area ? `areaCode=${area}` : ""
       }${siGunGu ? `&sigunguCode=${siGunGu}` : ""}`
     );
@@ -44,14 +53,20 @@ function EventList({ area, siGunGu, APIKEY }) {
   }, [area, siGunGu]);
 
   return (
+
     <div className="EventList">
-      {!events ? (
-        <p>예정된 행사가 없습니다.</p>
-      ) : (
-        events.map((event) => {
-          return (
+    <h1>Events / Festivals</h1>
+    <div className="carousel-container">
+
+      <div className="carousel-slides">
+        {events.map((event, index) => (
+          <div
+            key={event.contentid}
+            className={`carousel-slide ${parseInt(index) === parseInt(currentSlide) ? 'active' : ''}`}
+          >
             <EventListItem
               key={event.contentid}
+              id={index}
               title={event.title}
               imageUrl={event.firstimage}
               startAt={event.eventstartdate}
@@ -60,10 +75,32 @@ function EventList({ area, siGunGu, APIKEY }) {
               addr2={event.addr2}
               tel={event.tel}
             />
-          );
-        })
-      )}
+          </div>
+
+          
+        ))}
+
+
+      </div>
+
+      <div>
+      <button className="carousel-button prev" onClick={prevSlide}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+        </svg>
+      <span>{currentSlide+1} / {events.length}</span>
+      </button>
+      <button className="carousel-button next" onClick={nextSlide}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+        </svg>
+      </button>
+      </div>
+
     </div>
+    </div>
+
+    
   );
 }
 

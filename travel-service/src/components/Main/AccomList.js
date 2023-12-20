@@ -10,7 +10,7 @@ const AccomList = ({ area, siGunGu, APIKEY }) => {
 
   const getAccomData = async () => {
     const response = await axios.get(
-      `http://apis.data.go.kr/B551011/KorService1/searchStay1?serviceKey=${APIKEY}&_type=json&arrange=R&MobileOS=WIN&numOfRows=100&MobileApp=test&${
+      `http://apis.data.go.kr/B551011/KorService1/searchStay1?serviceKey=${APIKEY}&_type=json&arrange=R&MobileOS=WIN&numOfRows=10&MobileApp=test&${
         area ? `areaCode=${area}` : ""
       }${siGunGu ? `&sigunguCode=${siGunGu}` : ""}`
     );
@@ -45,7 +45,7 @@ const AccomList = ({ area, siGunGu, APIKEY }) => {
 
   return (
     <div className="AccomList">
-      <h1>숙박 리스트</h1>
+      <h1>Accommodations</h1>
       <div className='list-section'>
       {accomData.map((item)=>(
         <AccomItem key={item.contentid} {...item}/>

@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+* {
+    font-family: 'Nanum Myeongjo';
+}
+
 /* AccomList */
+.AccomList {
+    background-color: #ececec;
+}
 .AccomList .list-section {
     display: flex;
     overflow-y: scroll;
-    background-color: #ececec;
+}
+
+.AccomList h1 {
+    padding-top: 10px;
+    margin: 0 15px;
+    border-top: 1px solid rgb(160, 160, 160);
 }
 
 /* AccomItem */
@@ -31,16 +44,25 @@
 }
 
 /* EventList */
-
 .EventList {
+    background-color: #ececec;
+}
+.EventList h1 {
+    padding-top: 10px;
+    margin: 0 15px;
+    border-top: 1px solid rgb(160, 160, 160);
+}
+
+/* .EventList .event_list_section {
     height: 400px;
     display: flex;
     overflow-y: scroll;
-}
+    padding-bottom: 20px;
+} */
 
 /* EventListItem */
 
-.EventListItem {
+/* .EventListItem {
     border-radius: 5px;
     margin: 10px 20px;
     width: 20%;
@@ -64,6 +86,9 @@
 .EventListItem .event_text_box {
     border-radius: 5px;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     top: 0;
     left: 0;
     bottom: 0;
@@ -71,13 +96,160 @@
     opacity: 0;
     background-color: rgb(0, 0, 0, 0.5);
     color: white;
-    padding: 5px 10px;
+    padding: 10px 10px;
     &:hover {
       opacity: 1;
     };
 }
 
+.EventListItem .event_text_box .event_title {
+    font-size: 22px;
+    font-weight: 700;
+    padding-top: 5vh;
+}
+
 .EventListItem .event_text_box p {
     font-weight: 300;
     margin: 5px 10px;
+} */
+
+/* select */
+
+.select {
+    background-color: #ececec;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
+
+.select select {
+    font-size: 15px;
+    margin-left: 5px;
+    margin-right: 10px;
+    padding: 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.select .delete_btn {
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px 8px;
+    margin-right: 10px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    &:hover {
+        background-color: white;
+    }
+}
+
+
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    padding-bottom: 20px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    position: absolute;
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-button {
+    position: absolute;
+    /* top: 50%; */
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+.carousel-button:focus {
+    outline: none;
+}
+
+
+.EventListItem {
+    border-radius: 5px;
+    margin: 10px 20px;
+    height: 300px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    @media screen and (max-width: 992px) {
+      width: 45%;
+    }
+    @media screen and (max-width: 576px) {
+      width: 100%;
+    }
+  }
+  
+  .EventListItem .event_image {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .EventListItem .event_text_box {
+    border-radius: 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
+  .EventListItem .event_text_box .event_title {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  
+  .EventListItem .event_text_box p {
+    font-weight: 300;
+    margin: 5px 0;
+  }
