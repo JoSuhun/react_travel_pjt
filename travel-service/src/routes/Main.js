@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+
 import AccomList from "../components/Main/AccomList";
-import TourList from "../components/Main/TourList";
 import SelectLocation from "../components/Main/SelectLocation";
 import EventList from "../components/Main/EventList";
 

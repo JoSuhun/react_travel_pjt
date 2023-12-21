@@ -4,31 +4,49 @@
 }
 
 /* AccomList */
+
 .AccomList {
     background-color: #ececec;
-}
-.AccomList .list-section {
-    display: flex;
-    overflow-y: scroll;
+    border-top: 1px solid rgb(160, 160, 160);
+
 }
 
 .AccomList h1 {
-    padding-top: 10px;
-    margin: 0 15px;
-    border-top: 1px solid rgb(160, 160, 160);
+    margin: 0;
+    padding-top: 25px;
+    padding-left: 25px;
+}
+.AccomList h1 span {
+    background-image:
+    linear-gradient(to right, rgb(255, 242, 0), rgb(255, 243, 19));
+    background-size: 100% 35%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.AccomList .list-section {
+    display: flex;
+    flex-direction: row;
+    overflow-y: scroll;
+    margin: 0 17px;
 }
 
 /* AccomItem */
+
 .AccomItem {
-    background-color: #ffffff;
+    background-color: #f7f7f7;
     margin: 20px 5px;
-    width: 500px;
-    height: 310px;
+    padding-top: 17px;
+    width: 400px;
+    height: 300px;
     border-radius: 5px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
 }
 .AccomItem img {
-    width: 80vh;
-    height: 200px;
+    width: 400px;
+    height: 210px;
     object-fit: cover;
 }
 .AccomItem h3 {
@@ -37,13 +55,56 @@
     color: rgb(64, 64, 64);
     align-items: center;
     text-align: center;
+    margin: 0;
+    z-index: 2;
+    display: block;
+    font-weight: 800;
 }
+
+.AccomItem a span {
+    z-index: 1;
+    display: block;
+    padding-bottom: 5px;
+    color: rgb(70, 70, 70);
+    text-shadow: none;
+    text-transform: none;
+    font-style: italic;
+    font-size: 0.9em;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+  
+.AccomItem:hover span, .AccomItem:focus span {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    transform: translateY(0%);
+}
+
+.AccomItem:hover h3, .AccomItem:focus h3 {
+    display: inline-block;
+    background-image:
+    linear-gradient(to right, rgb(255, 252, 187), rgb(255, 252, 187));
+    background-size: 100% 45%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 80%;
+}
+
 .AccomItem .accom-addr {
     text-align: center;
     color: #878787;
+    margin: 10px 0;
 }
 
+
 /* EventList */
+
 .EventList {
     display: flex;
     background-color: #ececec;
@@ -59,17 +120,24 @@
     padding-top: 10px;
     padding-right: 20px;
     margin: 0 30px;
-
+}
+.EventList h1 span {
+    background-image:
+    linear-gradient(to right, rgb(131, 216, 255), rgb(146, 220, 255));
+    background-size: 100% 35%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
 }
 
 /* carousel */
 
 .carousel-container {
     position: relative;
-    width: 73%;
+    width: 100%;
     overflow: hidden;
     align-items: center;
     justify-content: center;
+    margin-right: 20px;
 }
   
 .carousel-slides {
@@ -86,23 +154,29 @@
   
 .carousel-slide.active {
     position: absolute;
-    transform: translateX(100%);
     opacity: 1;
     z-index: 1;
+    cursor: pointer;
 }
 
 .carousel-slide.next {
+    position: absolute;
+    transform: translateX(105%);
+    opacity: 0.5;
+    z-index: 2;
+}
+.carousel-slide.next_next {
     position: absolute;
     transform: translateX(200%);
     opacity: 0.5;
     z-index: 2;
 }
-.carousel-slide.prev {
+.carousel-slide.next_next_next {
     position: absolute;
+    transform: translateX(295%);
     opacity: 0.5;
     z-index: 2;
 }
-
 
 .carousel-slide img {
     width: 100%;
@@ -111,21 +185,38 @@
 }
 
 .btn_container {
+    position: absolute;
     display: flex;
-    justify-content: center;
+    transform: translateY(-50%);
+    padding-left: 370px;
+    z-index: 1;
+}
+
+.btn_container .now_slide {
+    font-size: 19px;
+}
+
+.btn_container .total_slide {
+    color: #878787;
 }
 
 .carousel-button {
-    justify-content: center;
     font-size: 20px;
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 3;
 }
 
 .carousel-button:focus {
     outline: none;
+}
+
+.active .EventListItem {
+    border-radius: 5px;
+    margin: 10px 20px;
+    height: 330px;
+    /* aspect-ratio: 1 / 1; */
+    position: relative;
 }
 
 
@@ -135,16 +226,20 @@
     height: 300px;
     aspect-ratio: 1 / 1;
     position: relative;
-  }
+}
   
-  .EventListItem .event_image {
+.EventListItem .event_image {
     border-radius: 5px;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  
-  .EventListItem .event_text_box {
+}
+
+.active .EventListItem .event_text_box {
+    opacity: 1;
+}
+
+.EventListItem .event_text_box {
     border-radius: 5px;
     position: absolute;
     display: flex;
@@ -158,21 +253,21 @@
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 10px;
-  }
+}
 
-  .EventListItem .event_text_box:hover {
+.EventListItem .event_text_box:hover {
     opacity: 1;
-  }
+}
   
-  .EventListItem .event_text_box .event_title {
+.EventListItem .event_text_box .event_title {
     font-size: 22px;
     font-weight: 700;
-  }
+}
   
-  .EventListItem .event_text_box p {
+.EventListItem .event_text_box p {
     font-weight: 300;
     margin: 5px 0;
-  }
+}
 
 /* select */
 
@@ -187,7 +282,8 @@
 }
 
 .select select {
-    font-size: 15px;
+    font-size: 17px;
+    color: rgb(105, 105, 105);
     margin-left: 5px;
     margin-right: 10px;
     padding: 2px;
@@ -199,14 +295,19 @@
 .select .delete_btn {
     border: none;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 17px;
     padding: 5px 8px;
     margin-right: 10px;
-    background-color: #f8f8f8;
+    background-color: #ff8d6d;
+    color: white;
     cursor: pointer;
-    &:hover {
-        background-color: white;
-    }
 }
 
+.select .delete_btn:hover {
+    background-color: #fea289;
+}
 
+.error_msg {
+    font-size: 30px;
+    padding: 20px;
+}

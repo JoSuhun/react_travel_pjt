@@ -56,7 +56,6 @@ function SelectLocation({ area, siGunGu, setArea, setSiGunGu, APIKEY }) {
 
   return (
     <form className='select'>
-      <button className='delete_btn' onClick={deleteList}>현재 위치로 설정</button>
       <label className="area_select">
         지역:
         <select onChange={updateArea}>
@@ -83,6 +82,8 @@ function SelectLocation({ area, siGunGu, setArea, setSiGunGu, APIKEY }) {
           })}
         </select>
       </label>
+      <button className='delete_btn' onClick={deleteList}>현재 위치로 설정</button>
+
     </form>
   );
 }

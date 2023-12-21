@@ -1,9 +1,16 @@
-const AccomItem = ({title, addr1, firstimage, areacode}) =>{
+const AccomItem = ({title, addr1, firstimage, tel}) =>{
+  const defaultImage = process.env.PUBLIC_URL + `/assets/accommodation_image.jpg`
+    
     return(
         <div className="AccomItem">
-            <h3>{title}</h3>
-            <img src={firstimage} />
-            <p className="accom-addr">{addr1}</p>
+            <div>
+                <a>
+                    <h3>{title}</h3>
+                    <span>{tel}</span>
+                </a>
+                <img src={firstimage?firstimage:defaultImage} />
+                <p className="accom-addr">{addr1}</p>
+            </div>
         </div>
     )
 }

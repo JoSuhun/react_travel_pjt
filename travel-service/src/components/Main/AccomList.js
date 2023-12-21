@@ -45,12 +45,17 @@ const AccomList = ({ area, siGunGu, APIKEY }) => {
 
   return (
     <div className="AccomList">
-      <h1>Accommodations</h1>
+      <h1><span>Accommodations</span></h1>
+      {accomData
+      ?
       <div className='list-section'>
       {accomData.map((item)=>(
         <AccomItem key={item.contentid} {...item}/>
       ))}
       </div>
+      :
+      <div className='error_msg'>가능한 숙소가 없습니다</div>
+      }
 
     </div>
   );

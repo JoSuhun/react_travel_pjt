@@ -3,7 +3,6 @@ import './AccomEvent.css'
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EventListItem from "./EventListItem";
-// import styled from "styled-components";
 
 function EventList({ area, siGunGu, APIKEY }) {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -23,7 +22,8 @@ function EventList({ area, siGunGu, APIKEY }) {
         area ? `areaCode=${area}` : ""
       }${siGunGu ? `&sigunguCode=${siGunGu}` : ""}`
     );
-    setEvents(response.data.response.body.items.item);
+    setEvents(response.data.response.body.items.item)
+    setCurrentSlide(0)
   };
 
   function onGeoOK(position) {
@@ -53,13 +53,13 @@ function EventList({ area, siGunGu, APIKEY }) {
   }, [area, siGunGu]);
 
   return (
-
     <div className="EventList">
     <div className='list_head'>
-      <h1>Events / Festivals</h1>
+      <h1><span>Events / Festivals</span></h1>
     </div>
+    {events
+    ?
     <div className="carousel-container">
-
       <div className="carousel-slides">
         {events.map((event, index) => (
           <div
@@ -67,8 +67,13 @@ function EventList({ area, siGunGu, APIKEY }) {
             className={`carousel-slide ${parseInt(index) === parseInt(currentSlide) ? 'active'
             : (parseInt(index) === parseInt(currentSlide)+1)||
               ((parseInt(currentSlide)+1===events.length)&&(parseInt(index) === 0)) ? 'next'
-            : (parseInt(index) === parseInt(currentSlide)-1)||
-              ((parseInt(currentSlide)===0)&&(parseInt(index)+1 === events.length)) ? 'prev'
+            : (parseInt(index) === parseInt(currentSlide)+2)||
+              ((parseInt(currentSlide)+2===events.length)&&(parseInt(index) === 0))||
+              ((parseInt(currentSlide)+1===events.length)&&(parseInt(index) === 1)) ? 'next_next'
+            : (parseInt(index) === parseInt(currentSlide)+3)||
+              ((parseInt(currentSlide)+3===events.length)&&(parseInt(index) === 0))||
+              ((parseInt(currentSlide)+2===events.length)&&(parseInt(index) === 1))||
+              ((parseInt(currentSlide)+1===events.length)&&(parseInt(index) === 2)) ? 'next_next_next'
             : ''}`}
           >
             <EventListItem
@@ -92,16 +97,19 @@ function EventList({ area, siGunGu, APIKEY }) {
             <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
           </svg>
         </button>
-        <span>{currentSlide+1} / {events.length}</span>
+        <span><span className='now_slide'>{currentSlide+1}</span> / <span className='total_slide'>{events.length}</span></span>
         <button className="carousel-button next" onClick={nextSlide}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
           </svg>
         </button>
       </div>
-
-
     </div>
+
+    :
+    <div className='error_msg'>예정된 행사가 없어요</div>
+    }
+
     </div>
 
     
