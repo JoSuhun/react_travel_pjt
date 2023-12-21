@@ -3,14 +3,12 @@ const AccomItem = ({title, addr1, firstimage, tel}) =>{
     
     return(
         <div className="AccomItem">
-            <div>
-                <a>
+                <div className="accom_head">
                     <h3>{title}</h3>
-                    <span>{tel}</span>
-                </a>
+                    {tel&&<span>{tel}</span>}
+                </div>
                 <img src={firstimage?firstimage:defaultImage} />
                 <p className="accom-addr">{addr1}</p>
-            </div>
         </div>
     )
 }
