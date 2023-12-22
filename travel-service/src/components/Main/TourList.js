@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-const TourList = () => {
+const TourList = ({APIKEY}) => {
   const [tourData, setTourData] = useState([]);
-
-  const API_KEY =
-    "wbGd%2F2atBr9%2Bic8bMAMxbtCv02LReGdl3YAVrEcZeqgEPMwoMuFmYDlH3m7D0lFZqzfwOV6A7CHEOHYukTDxHw%3D%3D";
 
   function onGeoOK(position) {
     const lat = position.coords.latitude;
@@ -18,7 +15,7 @@ const TourList = () => {
   const getTourData = async (lat, lon) => {
     const response = await fetch(
       // 위치 기반 관광 정보 조회 (한국관광공사_국문 관광정보 서비스_GW)
-      `http://apis.data.go.kr/B551011/KorService1/locationBasedList1?serviceKey=${API_KEY}&_type=json&MobileOS=WIN&numOfRows=10&MobileApp=test&mapX=${lon}&mapY=${lat}&radius=10000`
+      `http://apis.data.go.kr/B551011/KorService1/locationBasedList1?serviceKey=${APIKEY}&_type=json&MobileOS=WIN&numOfRows=10&MobileApp=test&arrange=S&contentTypeId=32&mapX=${lon}&mapY=${lat}&radius=20000`
     );
     const json = await response.json();
     setTourData(json.response.body.items.item);

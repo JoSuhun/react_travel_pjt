@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+
 import AccomList from "../components/Main/AccomList";
-import TourList from "../components/Main/TourList";
 import SelectLocation from "../components/Main/SelectLocation";
 import EventList from "../components/Main/EventList";
 import MainBanner from "../components/Main/MainBanner";
@@ -10,22 +10,32 @@ function Main() {
   const [area, setArea] = useState(null);
   const [siGunGu, setSiGunGu] = useState(null);
   const API_KEY =
-    "p%2FlaNOV0RM5G19AFrkR%2BR%2BgM8RCHbGWehQrAS7OryZo46ArT%2FTqEBW%2BNJPckAiCMQeJHtyH71TLtvdejdKOGYw%3D%3D";
+    "wbGd%2F2atBr9%2Bic8bMAMxbtCv02LReGdl3YAVrEcZeqgEPMwoMuFmYDlH3m7D0lFZqzfwOV6A7CHEOHYukTDxHw%3D%3D";
 
   return (
     <div>
+
       <MainBanner APIKEY={API_KEY} />
       <SiteDescription />
-      {/* <SelectLocation
+
+      <h3>안녕하세요?</h3>
+
+      <SelectLocation
         setArea={setArea}
         setSiGunGu={setSiGunGu}
         area={area}
         siGunGu={siGunGu}
         APIKEY={API_KEY}
       />
+
       <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} /> */}
       <TourList />
       <AccomList />
+
+      <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
+      <AccomList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
+
+
     </div>
   );
 }
