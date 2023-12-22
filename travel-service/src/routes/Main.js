@@ -16,6 +16,7 @@ function Main() {
     <div>
       <MainBanner APIKEY={API_KEY} />
       <SiteDescription />
+
       <SelectLocation
         setArea={setArea}
         setSiGunGu={setSiGunGu}
@@ -23,8 +24,7 @@ function Main() {
         siGunGu={siGunGu}
         APIKEY={API_KEY}
       />
-      <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
-      <AccomList />
+
       <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
       <AccomList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
     </div>
