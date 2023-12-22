@@ -18,8 +18,6 @@ function Main() {
       <MainBanner APIKEY={API_KEY} />
       <SiteDescription />
 
-      <h3>안녕하세요?</h3>
-
       <SelectLocation
         setArea={setArea}
         setSiGunGu={setSiGunGu}
@@ -28,9 +26,6 @@ function Main() {
         APIKEY={API_KEY}
       />
 
-      <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} /> */}
-      <TourList />
-      <AccomList />
 
       <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
       <AccomList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
