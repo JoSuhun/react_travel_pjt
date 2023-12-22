@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import AccomList from "../components/Main/AccomList";
 import SelectLocation from "../components/Main/SelectLocation";
 import EventList from "../components/Main/EventList";
+import MainBanner from "../components/Main/MainBanner";
+import SiteDescription from "../components/Main/SiteDescription";
 
 function Main() {
   const [area, setArea] = useState(null);
@@ -12,6 +14,10 @@ function Main() {
 
   return (
     <div>
+
+      <MainBanner APIKEY={API_KEY} />
+      <SiteDescription />
+
       <h3>안녕하세요?</h3>
 
       <SelectLocation
@@ -21,8 +27,14 @@ function Main() {
         siGunGu={siGunGu}
         APIKEY={API_KEY}
       />
+
+      <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} /> */}
+      <TourList />
+      <AccomList />
+
       <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
       <AccomList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
+
 
     </div>
   );
