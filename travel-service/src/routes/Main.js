@@ -14,12 +14,8 @@ function Main() {
 
   return (
     <div>
-
       <MainBanner APIKEY={API_KEY} />
       <SiteDescription />
-
-      <h3>안녕하세요?</h3>
-
       <SelectLocation
         setArea={setArea}
         setSiGunGu={setSiGunGu}
@@ -27,15 +23,10 @@ function Main() {
         siGunGu={siGunGu}
         APIKEY={API_KEY}
       />
-
-      <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} /> */}
-      <TourList />
+      <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
       <AccomList />
-
       <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
       <AccomList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
-
-
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import axios from "axios";
+import "./AccomEvent.css";
 
 // 전체 배너
 const Wrapper = styled.div`
