@@ -37,17 +37,17 @@ function SiteDescription() {
       <TitleBox>AppName에서 특별한 여행을 즐겨보세요</TitleBox>
       <CardList>
         <SiteDescriptionCard
-          bgImg="./images/desc1.jpg"
+          bgImg="./assets/desc1.jpg"
           color="#7344DB"
           cat="숙소"
         />
         <SiteDescriptionCard
-          bgImg="./images/desc2.jpg"
+          bgImg="./assets/desc2.jpg"
           color="#00482C"
           cat="관광지"
         />
         <SiteDescriptionCard
-          bgImg="./images/desc3.jpg"
+          bgImg="./assets/desc3.jpg"
           color="#BA116E"
           cat="교통편"
         />
