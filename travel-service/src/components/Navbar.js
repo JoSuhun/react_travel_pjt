@@ -66,7 +66,7 @@ function Navbar() {
       <Nav>
         <StyledLink to="/">HOME</StyledLink>
         <StyledLink to="/search">Search</StyledLink>
-        <p style={{ color: "white" }}>LINK2</p>
+        <StyledLink to="/keep">Keep</StyledLink>
         <p style={{ color: "white" }}>LINK3</p>
       </Nav>
     </Wrapper>

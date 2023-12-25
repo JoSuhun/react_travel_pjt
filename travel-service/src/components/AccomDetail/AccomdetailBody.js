@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { KeepStateContext } from "../../App";
 import AccomdetailCard from "./AccomdetailCard";
 import AccomdetailFacilities from "./AccomdetailFacilities";
 
@@ -44,6 +45,19 @@ const Border = styled.div`
 `;
 
 function AccomdetailBody({ accom1, accom2, accom3 }) {
+  const {keepAccomData, keepEventData} = useContext(KeepStateContext)
+  const onKeepAccom = (image, title, tel, addr) => {
+    let newKeepAccom = []
+    const accomdata = {
+      image,
+      title,
+      tel,
+      addr,
+    }
+    newKeepAccom = [accomdata, ...keepAccomData]
+    localStorage.setItem('accommodation', JSON.stringify(newKeepAccom))
+  }
+
   return (
     <Wrapper>
       <InnerBox>
@@ -57,6 +71,9 @@ function AccomdetailBody({ accom1, accom2, accom3 }) {
         />
         <HotelDetail>
           <h1>{accom1.title}</h1>
+          <button
+          onClick={onKeepAccom(accom1.firstimage, accom1.title, accom1.tel, accom1.addr1)}
+          >저장하기</button>
           <Border />
           <p>
             주소: {accom1.addr1} {accom1.addr2}

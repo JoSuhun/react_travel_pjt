@@ -44,13 +44,9 @@ const EventDetail = () => {
     }, [])
 
     return(
-        <div>
-            <MainBanner APIKEY={API_KEY} />
-            <div className='EventDetail'>
+        <div className='EventDetail'>
             <EventDetailHeader event={event} event2={event2}/>
             <EventDetailBody event={event} event2={event2}/>
-            </div>
-
         </div>
     )
 }

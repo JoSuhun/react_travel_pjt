@@ -1,11 +1,21 @@
-
-
 /* Event-Header */
 .EventDetailHeader {
-    background-color: #ececec;
-    padding: 20px 30px;
+    background: url("../../../public/assets/event_image.jpg");
+    background-size: cover;
+    /* padding: 80px 30px; */
+    height: 400px;
     margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
 }
+.EventDetailHeader h2 {
+    font-size: 35px;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+    height: 400px;
+    padding-top: 250px;
+}
+
 
 /* EventDetail-Body */
 .EventDetailBody{
