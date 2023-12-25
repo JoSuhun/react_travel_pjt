@@ -6,12 +6,14 @@ import EventList from "../components/Main/EventList";
 import MainBanner from "../components/Main/MainBanner";
 import SiteDescription from "../components/Main/SiteDescription";
 
+
 function Main() {
   const [area, setArea] = useState(null);
   const [siGunGu, setSiGunGu] = useState(null);
   const API_KEY = React.useContext(APIContext);
 
   return (
+
     <div>
       <MainBanner APIKEY={API_KEY} />
       <SiteDescription />
@@ -27,6 +29,7 @@ function Main() {
       <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
       <AccomList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
     </div>
+
   );
 }
 
