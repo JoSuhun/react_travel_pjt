@@ -4,9 +4,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EventListItem from "./EventListItem";
 
+
 function EventList({ area, siGunGu, APIKEY }) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [events, setEvents] = useState([])
+
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? events.length - 1 : prev - 1));
@@ -78,7 +80,7 @@ function EventList({ area, siGunGu, APIKEY }) {
           >
             <EventListItem
               key={event.contentid}
-              id={index}
+              id={event.contentid}
               title={event.title}
               imageUrl={event.firstimage}
               startAt={event.eventstartdate}
@@ -112,7 +114,6 @@ function EventList({ area, siGunGu, APIKEY }) {
 
     </div>
 
-    
   );
 }
 

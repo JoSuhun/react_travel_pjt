@@ -6,13 +6,16 @@ import EventList from "../components/Main/EventList";
 import MainBanner from "../components/Main/MainBanner";
 import SiteDescription from "../components/Main/SiteDescription";
 
+
 function Main() {
   const [area, setArea] = useState(null);
   const [siGunGu, setSiGunGu] = useState(null);
+
   const API_KEY =
     "wbGd%2F2atBr9%2Bic8bMAMxbtCv02LReGdl3YAVrEcZeqgEPMwoMuFmYDlH3m7D0lFZqzfwOV6A7CHEOHYukTDxHw%3D%3D";
 
   return (
+
     <div>
       <MainBanner APIKEY={API_KEY} />
       <SiteDescription />
@@ -28,6 +31,7 @@ function Main() {
       <EventList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
       <AccomList area={area} siGunGu={siGunGu} APIKEY={API_KEY} />
     </div>
+
   );
 }
 

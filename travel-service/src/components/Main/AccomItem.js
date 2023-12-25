@@ -1,6 +1,6 @@
 const AccomItem = ({title, addr1, firstimage, tel}) =>{
-  const defaultImage = process.env.PUBLIC_URL + `/assets/accommodation_image.jpg`
-    
+    const defaultImage = process.env.PUBLIC_URL + `/assets/accommodation_image.jpg`
+
     return(
         <div className="AccomItem">
                 <div className="accom_head">
