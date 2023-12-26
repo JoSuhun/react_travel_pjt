@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { KeepStateContext } from "../../App";
+import { KeepContext, KeepStateContext } from "../../App";
 import AccomdetailCard from "./AccomdetailCard";
 import AccomdetailFacilities from "./AccomdetailFacilities";
 
@@ -46,17 +46,18 @@ const Border = styled.div`
 
 function AccomdetailBody({ accom1, accom2, accom3 }) {
   const {keepAccomData, keepEventData} = useContext(KeepStateContext)
-  const onKeepAccom = (image, title, tel, addr) => {
-    let newKeepAccom = []
-    const accomdata = {
-      image,
-      title,
-      tel,
-      addr,
-    }
-    newKeepAccom = [accomdata, ...keepAccomData]
-    localStorage.setItem('accommodation', JSON.stringify(newKeepAccom))
-  }
+  const {onKeepAccom, onKeepEvent} = useContext(KeepContext)
+  // const onKeepAccom = (image, title, tel, addr) => {
+  //   let newKeepAccom = []
+  //   const accomdata = {
+  //     image,
+  //     title,
+  //     tel,
+  //     addr,
+  //   }
+  //   newKeepAccom = [accomdata, ...keepAccomData]
+  //   localStorage.setItem('accommodation', JSON.stringify(newKeepAccom))
+  // }
 
   return (
     <Wrapper>

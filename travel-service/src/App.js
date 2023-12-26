@@ -38,17 +38,17 @@ function App() {
     }
   }, [])
 
-  // const onKeepAccom = (image, title, tel, addr) => {
-  //   let newKeepAccom = []
-  //   const accomdata = {
-  //     image,
-  //     title,
-  //     tel,
-  //     addr,
-  //   }
-  //   newKeepAccom = [accomdata, ...keepAccomData]
-  //   localStorage.setItem('accommodation', JSON.stringify(newKeepAccom))
-  // }
+  const onKeepAccom = (image, title, tel, addr) => {
+    let newKeepAccom = []
+    const accomdata = {
+      image,
+      title,
+      tel,
+      addr,
+    }
+    newKeepAccom = [accomdata, ...keepAccomData]
+    localStorage.setItem('accommodation', JSON.stringify(newKeepAccom))
+  }
   const onKeepEvent = (image, title, tel, addr) => {
     let newEventAccom = []
     const eventdata = {
@@ -66,7 +66,7 @@ function App() {
     <div>
       <APIContext.Provider value={APIKEY}>
       <KeepStateContext.Provider value={{keepAccomData, keepEventData}}>
-      {/* <KeepContext.Provider value={{onKeepAccom, onKeepEvent}}> */}
+      <KeepContext.Provider value={{onKeepAccom, onKeepEvent}}>
         <Router>
           <Scroll />
           <Navbar />
@@ -79,7 +79,7 @@ function App() {
           </Routes>
           <Footer />
         </Router>
-      {/* </KeepContext.Provider> */}
+      </KeepContext.Provider>
       </KeepStateContext.Provider>
       </APIContext.Provider>
 
