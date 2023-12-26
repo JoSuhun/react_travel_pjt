@@ -10,7 +10,7 @@ const EventDetailBody = ({event, event2}) => {
             <div className="event_info">
                 <p>{event.title}
                 <button
-                onClick={onKeepEvent(event.firstimage, event.title, event.tel, event.addr1)}>저장</button>
+                onClick={onKeepEvent(event.firstimage, event.title, event.tel, event.addr1, event.contentid)}>저장</button>
                 </p>
                 <p><span>장소</span>{event2.eventplace} / {event.addr1}</p>
                 <p><span>일자</span>{event2.eventstartdate} ~ {event2.eventenddate}</p>

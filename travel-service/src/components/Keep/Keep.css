@@ -12,3 +12,44 @@
     height: 400px;
     padding-top: 250px;
 }
+
+.KeepBody {
+    margin: 0 40px;
+}
+
+.KeepBody h2 {
+    font-size: 27px;
+    border-top: 1px black solid;
+    padding-top: 10px;
+}
+
+.KeepBody .container {
+    display: flex;
+    flex-direction: row;
+    overflow-y: scroll;
+    padding-bottom: 20px;
+}
+.KeepCard {
+    height: 300px;
+    width: 250px;
+    margin: 0 10px;
+}
+.KeepCard .text_box {
+    height: 300px;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.717);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.text_box > p {
+    font-weight: 800;
+    font-size: 17px;
+    text-align: center;
+}
+
+.text_box .info {
+    text-align: end;
+    margin: 0 10px;
+    border-top: 1px solid black;
+}

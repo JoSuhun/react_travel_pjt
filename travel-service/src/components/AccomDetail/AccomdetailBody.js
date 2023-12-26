@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import styled from "styled-components";
 import { KeepContext, KeepStateContext } from "../../App";
 import AccomdetailCard from "./AccomdetailCard";
@@ -47,17 +47,6 @@ const Border = styled.div`
 function AccomdetailBody({ accom1, accom2, accom3 }) {
   const {keepAccomData, keepEventData} = useContext(KeepStateContext)
   const {onKeepAccom, onKeepEvent} = useContext(KeepContext)
-  // const onKeepAccom = (image, title, tel, addr) => {
-  //   let newKeepAccom = []
-  //   const accomdata = {
-  //     image,
-  //     title,
-  //     tel,
-  //     addr,
-  //   }
-  //   newKeepAccom = [accomdata, ...keepAccomData]
-  //   localStorage.setItem('accommodation', JSON.stringify(newKeepAccom))
-  // }
 
   return (
     <Wrapper>
@@ -73,11 +62,11 @@ function AccomdetailBody({ accom1, accom2, accom3 }) {
         <HotelDetail>
           <h1>{accom1.title}</h1>
           <button
-          onClick={onKeepAccom(accom1.firstimage, accom1.title, accom1.tel, accom1.addr1)}
+          onClick={onKeepAccom(accom1.firstimage, accom1.title, accom1.tel, accom1.addr1, accom1.contentid)}
           >저장하기</button>
           <Border />
           <p>
-            주소: {accom1.addr1} {accom1.addr2}
+            주소: {accom1.addr1} {accom1.addr2} {accom1.contentid}
           </p>
           <p>전화번호: {accom1.tel}</p>
           {!accom1.homepage ||

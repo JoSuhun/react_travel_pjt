@@ -38,9 +38,10 @@ function App() {
     }
   }, [])
 
-  const onKeepAccom = (image, title, tel, addr) => {
+  const onKeepAccom = (image, title, tel, addr, id) => {
     let newKeepAccom = []
     const accomdata = {
+      id,
       image,
       title,
       tel,
@@ -49,9 +50,10 @@ function App() {
     newKeepAccom = [accomdata, ...keepAccomData]
     localStorage.setItem('accommodation', JSON.stringify(newKeepAccom))
   }
-  const onKeepEvent = (image, title, tel, addr) => {
+  const onKeepEvent = (image, title, tel, addr, id) => {
     let newEventAccom = []
     const eventdata = {
+      id,
       image,
       title,
       tel,
